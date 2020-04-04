@@ -19,11 +19,15 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
 from login.api.viewsets import RegisterViewSet
+from Itens.api.viewsets import ItemViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'register', RegisterViewSet)
+router.register(r'itens', ItemViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token),
 ]

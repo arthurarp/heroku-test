@@ -8,3 +8,5 @@ class Register(models.Model):
     date_of_birth = models.DateField()
     cpf = models.CharField(max_length=11)
     
+    def __str__(self):
+        return self.username
